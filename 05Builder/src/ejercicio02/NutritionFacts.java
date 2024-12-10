@@ -1,7 +1,15 @@
 package ejercicio02;
 
 public class NutritionFacts {
+    // Required fields
+    private final int servingSize;
+    private final int servings;
+    
+    // Optional fields - initialized to default values
+    private final int calories;
+    private final int fat;
 
+<<<<<<< Updated upstream
 	// obligatorias
 	private  int servingSize;
 	private  int servings;
@@ -81,4 +89,73 @@ public class NutritionFacts {
 	}
 
 	
+=======
+    // Private constructor so only the builder can access it
+    private NutritionFacts(Builder builder) {
+        this.servingSize = builder.servingSize;
+        this.servings = builder.servings;
+        this.calories = builder.calories;
+        this.fat = builder.fat;
+    }
+
+    // Static nested Builder class
+    public static class Builder {
+        // Required fields
+        private int servingSize;
+        private int servings;
+        
+        // Optional fields - initialized to default values
+        private int calories = 0;
+        private int fat = 0;
+
+        // Constructor for required fields
+        public Builder(int servingSize, int servings) {
+            this.servingSize = servingSize;
+            this.servings = servings;
+        }
+
+        // Setter for optional field calories
+        public Builder calories(int calories) {
+            this.calories = calories;
+            return this; // returns the builder itself for chaining
+        }
+
+        // Setter for optional field fat
+        public Builder fat(int fat) {
+            this.fat = fat;
+            return this;
+        }
+
+        // Build method to create an instance of NutritionFacts
+        public NutritionFacts build() {
+            return new NutritionFacts(this);
+        }
+    }
+
+    // Getters for the fields
+    public int getServingSize() {
+        return servingSize;
+    }
+
+    public int getServings() {
+        return servings;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    // Override toString for easier display of the object’s data
+    @Override
+    public String toString() {
+        return "NutritionFacts [servingSize=" + servingSize +
+               ", servings=" + servings +
+               ", calories=" + calories +
+               ", fat=" + fat + "]";
+    }
+>>>>>>> Stashed changes
 }
